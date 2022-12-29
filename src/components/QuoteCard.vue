@@ -32,8 +32,7 @@ import BaseButton from "./BaseButton.vue";
 import BaseText from "./BaseText.vue";
 import axios from "axios";
 import { ref } from "vue";
-const allQuotes = ref("");
-const allAuthors = ref([]);
+const allQuotes = ref([]);
 const selectedQuote = ref(0);
 
 const fetchQuotes = () => {
@@ -43,7 +42,6 @@ const fetchQuotes = () => {
     )
     .then((response) => {
       allQuotes.value = response.data;
-      console.log(allAuthors);
       selectedQuote.value = allQuotes._rawValue[0];
     })
     .catch((error) => {
