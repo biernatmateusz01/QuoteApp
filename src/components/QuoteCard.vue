@@ -33,7 +33,7 @@ import BaseText from "./BaseText.vue";
 import axios from "axios";
 import { ref } from "vue";
 const allQuotes = ref([]);
-const selectedQuote = ref(0);
+const selectedQuote = ref([]);
 
 const fetchQuotes = () => {
   axios
