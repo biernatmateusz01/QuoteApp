@@ -4,11 +4,21 @@
   >
     <div class="flex justify-between">
       <BaseText>Draw your quote</BaseText>
-      <BaseText>We have <span class="text-cyan-500">{{ allQuotes.length }}</span> quotes</BaseText>
+      <BaseText
+        >We have
+        <span class="text-cyan-500">{{ allQuotes.length }}</span>
+        quotes</BaseText
+      >
     </div>
-    <span class="block m-auto text-center text-cyan-500">{{
-      selectedQuote
-    }}</span>
+
+    <div class="flex flex-col">
+      <span class="block m-auto text-center text-cyan-500">{{
+        selectedQuote.quote
+      }}</span>
+      <span class="block m-auto text-sm text-center mt-2 text-cyan-500">{{
+        selectedQuote.author
+      }}</span>
+    </div>
 
     <div class="flex justify-end">
       <!-- <BaseButton>prev</BaseButton> -->
@@ -23,6 +33,7 @@ import BaseText from "./BaseText.vue";
 import axios from "axios";
 import { ref } from "vue";
 const allQuotes = ref("");
+const allAuthors = ref([]);
 const selectedQuote = ref(0);
 
 const fetchQuotes = () => {
@@ -31,7 +42,8 @@ const fetchQuotes = () => {
       "https://gist.githubusercontent.com/natebass/b0a548425a73bdf8ea5c618149fe1fce/raw/f4231cd5961f026264bb6bb3a6c41671b044f1f4/quotes.json"
     )
     .then((response) => {
-      allQuotes.value = response.data.map((el) => el.quote);
+      allQuotes.value = response.data;
+      console.log(allAuthors);
       selectedQuote.value = allQuotes._rawValue[0];
     })
     .catch((error) => {
