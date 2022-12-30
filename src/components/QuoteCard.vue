@@ -47,7 +47,7 @@
     </transition>
   </Teleport>
   <div
-    class="bg-white p-6 flex flex-col justify-between shadow-md rounded-md w-72 sm:w-96 min-h-[400px] transition duration-300 ease-in-out"
+    class="bg-white p-6 flex flex-col md:text-xl xl:text-2xl justify-between shadow-md rounded-md w-72 md:w-96 lg:min-w-[800px] min-h-[400px] transition duration-300 ease-in-out"
   >
     <div class="flex justify-between">
       <BaseText>Draw your quote</BaseText>
