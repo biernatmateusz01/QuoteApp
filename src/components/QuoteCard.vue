@@ -10,42 +10,44 @@
             class="lg:absolute mb-4 lg:mb-0 lg:top-1 lg:left-1"
             >Close Modal</BaseButton
           >
-          <BaseTitle>Add new quote</BaseTitle>
-          <form @submit.prevent="addNewQuote">
-            <div class="flex flex-col gap-2 mb-4 mt-6">
-              <div class="flex flex-col">
-                <span>Author</span>
-                <input
-                  type="text"
-                  v-model="vAuthor"
-                  class="border-b border-cyan-400 p-2 text-cyan-400"
-                />
+          <div class="p-4 xl:w-[1200px] min-w-[280px] sm:w-[600px]">
+            <BaseTitle>Add new quote</BaseTitle>
+            <form @submit.prevent="addNewQuote">
+              <div class="flex flex-col gap-2 mb-4 mt-6">
+                <div class="flex flex-col">
+                  <span>Author</span>
+                  <input
+                    type="text"
+                    v-model="vAuthor"
+                    class="border-b border-cyan-400 p-2 text-cyan-400 outline-cyan-400"
+                  />
+                </div>
+                <div class="flex flex-col">
+                  <span>Quote</span>
+                  <textarea
+                    type="text"
+                    v-model="vQuote"
+                    class="border-b border-cyan-400 p-2 text-cyan-400 outline-cyan-400"
+                  ></textarea>
+                </div>
               </div>
-              <div class="flex flex-col">
-                <span>Quote</span>
-                <input
-                  type="text"
-                  v-model="vQuote"
-                  class="border-b border-cyan-400 p-2 text-cyan-400"
-                />
-              </div>
-            </div>
 
-            <span v-if="wrongValidation" class="text-red-400 my-4 text-center"
-              >Unfortunately something went wrong <span>&#128542;</span></span
-            >
-            <input
-              type="submit"
-              value="Add new quote"
-              class="border-b border-cyan-400 p-2 text-cyan-400 block m-auto cursor-pointer hover:bg-cyan-400 hover:text-white transition duration-300 ease-in-out"
-            />
-          </form>
+              <span v-if="wrongValidation" class="text-red-400 my-4 text-center block m-auto"
+                >Unfortunately something went wrong <span>&#128542;</span></span
+              >
+              <input
+                type="submit"
+                value="Add new quote"
+                class="border-b border-cyan-400 p-2 text-cyan-400 block m-auto cursor-pointer hover:bg-cyan-400 hover:text-white transition duration-300 ease-in-out outline-cyan-400"
+              />
+            </form>
+          </div>
         </div>
       </BaseModal>
     </transition>
   </Teleport>
   <div
-    class="bg-white p-6 flex flex-col justify-between shadow-md rounded-md w-72 sm:w-96 min-h-[400px] hover:bg-cyan-700 hover:text-white transition duration-300 ease-in-out"
+    class="bg-white p-6 flex flex-col justify-between shadow-md rounded-md w-72 sm:w-96 min-h-[400px] transition duration-300 ease-in-out"
   >
     <div class="flex justify-between">
       <BaseText>Draw your quote</BaseText>
