@@ -5,7 +5,7 @@
         <BaseLoader v-if="isActiveLoader" />
         <BaseButton
           @click="isOpenModal = !isOpenModal"
-          close
+          :close="true"
           class="lg:absolute mb-4 lg:mb-0 lg:top-1 lg:left-1"
           >Close Modal</BaseButton
         >
@@ -125,7 +125,6 @@ const addNewQuote = () => {
     }, 2000);
     quotesLength.value = allQuotes.value.length;
     wrongValidation.value = false;
-
 
     vAuthor.value = "";
     vQuote.value = "";

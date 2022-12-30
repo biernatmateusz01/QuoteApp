@@ -31,11 +31,14 @@
 }
 .lds-default div {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: #06b6d4;
   border-radius: 50%;
   animation: lds-default 1.2s linear infinite;
+}
+.lds-default div:nth-child(odd) {
+  background: #01d9ff;
 }
 .lds-default div:nth-child(1) {
   animation-delay: 0s;
