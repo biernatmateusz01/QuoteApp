@@ -1,4 +1,5 @@
 <template>
+<Teleport to="body">
   <transition>
     <BaseModal v-if="isOpenModal">
       <div class="flex relative justify-center h-full items-center flex-col">
@@ -42,6 +43,7 @@
       </div>
     </BaseModal>
   </transition>
+</Teleport>
   <div
     class="bg-white p-6 flex flex-col justify-between shadow-md rounded-md w-72 sm:w-96 min-h-[400px] hover:bg-cyan-700 hover:text-white transition duration-300 ease-in-out"
   >
@@ -139,3 +141,17 @@ const closeModal = () => {
   isActiveLoader.value = false;
 };
 </script>
+
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+</style>
