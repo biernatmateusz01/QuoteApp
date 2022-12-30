@@ -117,8 +117,8 @@ const addNewQuote = () => {
   isActiveLoader.value = true;
   if (vAuthor.value && vQuote.value) {
     allQuotes._rawValue.push({
-      author: vAuthor.value.trimStart(),
       quote: vQuote.value.trimStart(),
+      author: vAuthor.value.trimStart(),
     });
     setTimeout(() => {
       closeModal();
