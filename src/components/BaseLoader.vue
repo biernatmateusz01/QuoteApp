@@ -16,11 +16,20 @@
       <div></div>
       <div></div>
     </div>
-    <span class="mt-4 text-lg text-white p-3 bg-cyan-400">
+    <span v-if="!open" class="mt-4 text-lg text-white p-3 bg-cyan-400">
       wait, we check and add your quote</span
+    >
+    <span v-if="open" class="mt-4 text-lg text-white p-3 bg-cyan-400">
+      Hello! wait now we get data for you <span>&#128512;</span></span
     >
   </div>
 </template>
+
+<script setup>
+defineProps({
+  open: Boolean,
+});
+</script>
 
 <style scoped>
 .lds-default {

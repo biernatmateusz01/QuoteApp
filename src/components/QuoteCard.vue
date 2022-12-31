@@ -32,7 +32,9 @@
                 </div>
               </div>
 
-              <span v-if="wrongValidation" class="text-red-400 my-4 text-center block m-auto"
+              <span
+                v-if="wrongValidation"
+                class="text-red-400 my-4 text-center block m-auto"
                 >Unfortunately something went wrong <span>&#128542;</span></span
               >
               <input
@@ -49,6 +51,7 @@
   <div
     class="bg-white p-6 flex flex-col md:text-xl xl:text-2xl justify-between shadow-md rounded-md w-72 md:w-96 lg:min-w-[800px] min-h-[400px] transition duration-300 ease-in-out"
   >
+    <BaseLoader open v-if="isOpenSiteLoader" />
     <div class="flex justify-between">
       <BaseText>Draw your quote</BaseText>
       <BaseText
@@ -91,6 +94,7 @@ const vAuthor = ref("");
 const vQuote = ref("");
 const wrongValidation = ref(false);
 const isActiveLoader = ref(false);
+const isOpenSiteLoader = ref(true);
 
 const fetchQuotes = () => {
   axios
@@ -104,13 +108,16 @@ const fetchQuotes = () => {
           Math.floor(Math.random() * allQuotes._rawValue.length)
         ];
       quotesLength.value = response.data.length;
+      isOpenSiteLoader.value = false;
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-fetchQuotes();
+setTimeout(() => {
+  fetchQuotes();
+}, 1000);
 
 const getNextQuote = () => {
   selectedQuote.value =
