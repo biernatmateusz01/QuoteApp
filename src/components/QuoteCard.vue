@@ -86,6 +86,7 @@ import BaseTitle from "./BaseTitle.vue";
 import BaseLoader from "./BaseLoader.vue";
 import axios from "axios";
 import { ref } from "vue";
+import { onMounted } from "vue";
 const allQuotes = ref([]);
 const selectedQuote = ref([]);
 const isOpenModal = ref(false);
@@ -114,10 +115,6 @@ const fetchQuotes = () => {
       console.log(error);
     });
 };
-
-setTimeout(() => {
-  fetchQuotes();
-}, 1000);
 
 const getNextQuote = () => {
   selectedQuote.value =
@@ -150,6 +147,13 @@ const closeModal = () => {
   wrongValidation.value = false;
   isActiveLoader.value = false;
 };
+
+onMounted(() => {
+  setTimeout(() => {
+    fetchQuotes();
+  }, 2000);
+});
+
 </script>
 
 <style scoped>
